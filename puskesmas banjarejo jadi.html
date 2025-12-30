@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puskesmas Bajarejo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .active-nav {
+            color: #1d4ed8;
+            font-weight: 600;
+            border-bottom: 2px solid #1d4ed8;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hidden {
+            display: none;
+        }
+        .page-transition {
+            transition: transform 1s ease, opacity 1s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .exit-active {
+            transform: rotateY(90deg);
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .enter-active {
+            transform: rotateY(0deg);
+            opacity: 1;
+        }
+        .chat-message {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+      <!-- Navigation -->
+      <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center w-full">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhl3tGpLpldhUHchK78nGXxNVnvt60WYJOhCH4hggpEvvcFxnK7T-8B1n6utKAC2Hr1kfKqmo_iKzDclsv3_Syr08GA5zLEkicMzWNqj9uYYNYG2xVUNEd9PIKSXa3PfWdsNGgu_hzQgM12/s1600/Asal-Usul-Kota-Tulungagung-Jawa-Timur.jpg" 
+                             alt="Logo Kabupaten Tulungagung" 
+                             class="h-12 w-auto object-cover">
+                    </div>
+                    <span class="text-2xl font-bold text-blue-700">Puskesmas Bajarejo</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="px-3 py-2 rounded-md text-green-700 hover:bg-green-100 transition-colors font-medium active-nav" onclick="showPage('home')">Beranda</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-green-700 hover:bg-green-100 transition-colors font-medium" onclick="showPage('pelayanan')">Pelayanan</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-green-700 hover:bg-green-100 transition-colors font-medium" onclick="showPage('tentang')">Tentang Kami</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-green-700 hover:bg-green-100 transition-colors font-medium" onclick="showPage('ai-kesehatan')">AI Kesehatan</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <div id="content" class="pb-20" style="margin-top: 80px">
+        <!-- Home Section -->
+        <div id="home" class="fade-in page-transition">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1">
+                    <div class="relative">
+                        <img src="https://img.antaranews.com/cache/800x533/2024/05/08/IMG-20240508-WA0027_3.jpg" 
+                             alt="Puskesmas Bajarejo" 
+                             class="relative rounded-lg shadow-2xl w-full h-auto border-8 border-white">
+                    </div>
+                    <div class="mt-6 flex flex-col items-center">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-4 text-center">Selamat Datang di Puskesmas Bajarejo</h1>
+                        <p class="text-lg text-gray-600 mb-4">Puskesmas Bajarejo melayani 24 jam dengan fasilitas kamar rawat inap dan pelayanan terbaik untuk kesehatan masyarakat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pelayanan Section -->
+        <div id="pelayanan" class="hidden fade-in page-transition">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Pelayanan Kami</h2>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li>Pelayanan Kesehatan Umum</li>
+                    <li>Pelayanan Kamar Rawat Inap</li>
+                    <li>Pelayanan Kesehatan Ibu dan Anak</li>
+                    <li>Pelayanan Gigi dan Mulut</li>
+                    <li>Pelayanan Kesehatan Jiwa</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tentang Kami Section -->
+        <div id="tentang" class="hidden fade-in page-transition">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Tentang Puskesmas Bajarejo</h2>
+                <p class="text-lg text-gray-600 mb-4">Puskesmas Bajarejo berkomitmen untuk memberikan pelayanan kesehatan yang terbaik kepada masyarakat. Dengan fasilitas yang memadai dan tenaga medis yang profesional, kami siap melayani Anda 24 jam.</p>
+                <p class="text-lg text-gray-600">Kami percaya bahwa kesehatan adalah hak setiap individu, dan kami berusaha untuk memberikan akses yang mudah dan cepat untuk semua layanan kesehatan yang dibutuhkan.</p>
+            </div>
+        </div>
+
+        <!-- AI Kesehatan Section -->
+        <div id="ai-kesehatan" class="hidden fade-in page-transition">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Asisten Kesehatan AI</h2>
+                <div class="bg-white rounded-lg p-6 shadow-md mb-6">
+                    <div id="chat-container" class="h-64 overflow-y-auto mb-4 p-4 border rounded-lg bg-gray-50">
+                        <div class="chat-message ai-message bg-blue-100 p-3 rounded-lg mb-2 max-w-[80%]">
+                            Halo! Saya adalah asisten kesehatan AI. Silakan ajukan pertanyaan seputar kesehatan.
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" id="user-input" placeholder="Tanyakan masalah kesehatan Anda..." 
+                               class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button onclick="sendMessage()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                            Kirim
+                        </button>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-600 p-4 bg-red-50 rounded-lg">
+                    <p class="text-center font-semibold">⚠️ Peringatan Penting:</p>
+                    <p class="text-center">AI ini hanya memberikan informasi dasar dan tidak menggantikan diagnosis dokter. 
+                    Untuk gejala darurat seperti sesak napas berat, nyeri dada, atau perdarahan, 
+                    SEGERA hubungi layanan darurat 112 atau datang ke Puskesmas terdekat.</p>
+                    <p class="text-center mt-2">Update terakhir: {tanggal}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        async function showPage(page) {
+            const currentPage = document.querySelector('#content > div:not(.hidden)');
+            const newPage = document.getElementById(page);
+            
+            // Add transition classes
+            if (currentPage) {
+                currentPage.classList.add('exit-active');
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                currentPage.classList.add('hidden');
+                currentPage.classList.remove('exit-active');
+            }
+
+            // Show new page
+            newPage.classList.remove('hidden');
+            newPage.classList.add('enter-active');
+            setTimeout(() => {
+                newPage.classList.remove('enter-active');
+            }, 1000);
+
+            // Update active nav links
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+            });
+            event.target.classList.add('active-nav');
+        }
+
+        // Data penyakit dan obat tetap sama (untuk referensi lokal jika diperlukan)
+        const diseaseSymptoms = {
+            "sakit kepala": {
+                description: "Sakit kepala bisa disebabkan migrain, stres, flu, atau masalah serius lain.",
+                advice: "Istirahat di ruangan redup, minum air putih, kompres dingin di dahi. Jika disertai muntah/pusing parah, segera ke dokter.",
+                severity: "moderate"
+            },
+            "demam": {
+                description: "Demam (>37.5°C) menunjukkan infeksi atau proses inflamasi.",
+                advice: "Istirahat, banyak minum, kompres hangat di ketiak/selangkangan. Jika >39°C atau lebih dari 3 hari, perlu pemeriksaan dokter.",
+                severity: "moderate" 
+            },
+            "diare": {
+                description: "Diare dapat disebabkan infeksi virus/bakteri, keracunan, atau masalah pencernaan.",
+                advice: "Minum oralit, hindari makanan padat/susu, konsumsi pisang/nasi. Jika disertai darah atau >3 hari, perlu obat dokter.",
+                severity: "moderate"
+            },
+            "sesak nafas": {
+                description: "Sesak nafas bisa karena asma, alergi, infeksi paru, atau masalah jantung.",
+                advice: "Cari udara segar, posisi duduk tegak. Jika bibir/kuku biru atau sangat berat bernafas, segera ke IGD.",
+                severity: "high"
+            },
+            // More conditions can be added here
+            "batuk darah": {
+                description: "Batuk darah bisa menandakan TB, kanker paru, atau infeksi serius.",
+                advice: "SEGERA konsultasi dokter. Hindari aktivitas fisik berat.",
+                severity: "emergency"
+            },
+            "nyeri dada": {
+                description: "Nyeri dada bisa gejala serangan jantung, GERD, atau masalah paru.",
+                advice: "Jika disertai sesak/keringat dingin, SEGERA ke IGD.",
+                severity: "emergency"
+            }
+        };
+
+        const commonMeds = {
+            
+            "paracetamol": "Untuk demam/sakit kepala ringan. Dosis dewasa 500mg tiap 4-6 jam (maks 4g/hari).",
+            "oralit": "Campur 1 bungkus dengan 200ml air matang. Minum sedikit-sedikit untuk diare.",
+            "antihistamin": "Untuk alergi ringan seperti biduran/pilek alergi. Contoh: Cetirizine 10mg/hari."
+        
+        };
+
+        // Fungsi sendMessage diperbaiki: sekarang fetch ke server Node.js
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const chat = document.getElementById('chat-container');
+            const question = input.value.trim();
+            
+            if (!question) return;  // Hindari pesan kosong
+            
+            try {
+                // Tambahkan pesan user ke chat
+                const userMsg = document.createElement('div');
+                userMsg.className = 'chat-message user-message bg-green-100 p-3 rounded-lg mb-2 ml-auto max-w-[80%]';
+                userMsg.textContent = question;
+                chat.appendChild(userMsg);
+                
+                // Fetch ke endpoint server Node.js (ganti URL jika server Anda berbeda)
+                const response = await fetch('http://localhost:3000/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: question })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Server error: ' + response.status);
+                }
+                
+                const data = await response.json();
+                const aiResponse = data.reply;
+                
+                // Tambahkan respons AI ke chat
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'chat-message ai-message bg-blue-100 p-3 rounded-lg mb-2 max-w-[80%] whitespace-pre-line';
+                aiMsg.textContent = aiResponse;
+                chat.appendChild(aiMsg);
+                
+                input.value = '';
+                chat.scrollTop = chat.scrollHeight;
+                
+            } catch (error) {
+                console.error('Error:', error);
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'chat-message ai-message bg-red-100 p-3 rounded-lg mb-2 max-w-[80%]';
+                errorMsg.textContent = "Maaf, terjadi kesalahan saat menghubungi server. Silakan coba lagi.";
+                chat.appendChild(errorMsg);
+            }
+        }
+
+        // Event listener untuk Enter key tetap sama
+        document.getElementById('user-input').addEventListener('keypress', async function(e) {
+            if (e.key === 'Enter') {
+                await sendMessage();
+            }
+        });
+
+        // Show home page tetap sama
+        showPage('home');
+    </script>
+</body>
+</html>
